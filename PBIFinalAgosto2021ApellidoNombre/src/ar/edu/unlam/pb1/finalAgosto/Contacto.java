@@ -25,13 +25,13 @@ public class Contacto {
 	private boolean deseaSerLlamadoNuevamente = true;
 	// CELULAR
 	private String codigoDePais;
-    private String codigoDeArea;
-    private String  NumeroCel;
-    private String celular= codigoDePais + codigoDeArea + NumeroCel;
-   
-   //CONSTRUCTOR
-    
-    public Contacto(String nombreYapellido, String direccion, String eMail, int codPostal, String localidad,
+	private String codigoDeArea;
+	private String NumeroCel;
+	private String celular = codigoDePais + codigoDeArea + NumeroCel;
+
+	// CONSTRUCTOR
+
+	public Contacto(String nombreYapellido, String direccion, String eMail, int codPostal, String localidad,
 			Provincia provincias, boolean esCliente, boolean deseaSerLlamadoNuevamente, String codigoDePais,
 			String codigoDeArea, String numeroCel, String celular) {
 		super();
@@ -53,7 +53,21 @@ public class Contacto {
 		/*
 		 * Eval�a si un String determinado puede ser almacenado como E-MAIL.
 		 */
+		verificarEmailValido(eMail);
 	}
+
+	private boolean verificarEmailValido(String eMailRecibido) {
+
+		 boolean contiene = false;
+		 char caracteres;
+		for (int i = 0; i < eMailRecibido.length(); i++) {
+		 caracteres=eMailRecibido.charAt(i);
+		if (eMailRecibido=="@");
+		return contiene = true;
+		    }
+		return contiene;
+		}
+	
 
 	public boolean registrarNuevaLlamada(Llamada nueva) {
 		/*
