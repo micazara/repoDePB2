@@ -76,13 +76,13 @@ public class Contacto {
 		return false;
 	}
 
+	@Override
 	public String toString() {
-		/*
-		 * Muestra los datos de un contacto, entre los que se debe incluir el registro
-		 * de las llamadas realizadas.
-		 */
-
-		return "";
+		return "Contacto \n[ nombreYapellido=" + nombreYapellido + "\nDireccion=" + direccion + "\neMail=" + eMail
+				+ "\nCodPostal=" + codPostal + "\nLocalidad=" + localidad + "\nProvincias=" + provincias
+				+ "\nCodigoDePais=" + codigoDePais + "\nCodigoDeArea=" + codigoDeArea + "\nNumeroCel=" + NumeroCel
+				+ "\nCelular=" + celular + "]";
 	}
+	
 
 }
