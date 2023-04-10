@@ -1,40 +1,55 @@
 package ar.edu.unlam.pb1.finalAgosto;
 
 public class Contacto {
-	
+
 	/*
 	 * Se deben incorporar los atributos necesarios.
 	 * 
-	 * •	Nombre y Apellido: No se aceptan números.
-	 * •	Celular: Compuesto del código de país + código de área + número de celular.
-	 * •	E-Mail: Debe contener al menos el símbolo ‘@’ y el caracter ‘.’.
-	 * •	Dirección: Valor alfanumérico.
-	 * •	Código Postal: Valor numérico.
-	 * •	Localidad: Valor alfanumérico.
-	 * •	Provincia. Enumerador que contenga las 23 provincias argentinas.
-	 * •	Es cliente (Si o No): Inicialmente se carga en “No”.
-	 * •	Desea ser llamado nuevamente (Si o No): Inicialmente se carga en “Si”.
+	 * ï¿½ Nombre y Apellido: No se aceptan nï¿½meros. ï¿½ Celular: Compuesto del cï¿½digo
+	 * de paï¿½s + cï¿½digo de ï¿½rea + nï¿½mero de celular. ï¿½ E-Mail: Debe contener al
+	 * menos el sï¿½mbolo ï¿½@ï¿½ y el caracter ï¿½.ï¿½. ï¿½ Direcciï¿½n: Valor alfanumï¿½rico. ï¿½
+	 * Cï¿½digo Postal: Valor numï¿½rico. ï¿½ Localidad: Valor alfanumï¿½rico. ï¿½ Provincia.
+	 * Enumerador que contenga las 23 provincias argentinas. ï¿½ Es cliente (Si o No):
+	 * Inicialmente se carga en ï¿½Noï¿½. ï¿½ Desea ser llamado nuevamente (Si o No):
+	 * Inicialmente se carga en ï¿½Siï¿½.
 	 */
-	
-	public void esEmailValido(String eMail) {
+
+	// ATRIBUTOS
+	private String nombreYapellido;
+	private String direccion;
+	private String eMail;
+	private int codPostal;
+	private String localidad;
+	private Provincia provincias;
+	private boolean esCliente = false;
+	private boolean deseaSerLlamadoNuevamente = true;
+	// CELULAR
+	private String codigoDePais;
+    private String codigoDeArea;
+    private String  NumeroCel;
+    private String celular= codigoDePais + codigoDeArea + NumeroCel;
+   
+   
+    public void esEmailValido(String eMail) {
 		/*
-		 * Evalúa si un String determinado puede ser almacenado como E-MAIL.
+		 * Evalï¿½a si un String determinado puede ser almacenado como E-MAIL.
 		 */
 	}
-	
+
 	public boolean registrarNuevaLlamada(Llamada nueva) {
 		/*
 		 * Registra una nueva llamada asociada al contacto actual.
 		 */
 		return false;
 	}
-	
+
 	public String toString() {
 		/*
-		 * Muestra los datos de un contacto, entre los que se debe incluir el registro de las llamadas realizadas.
+		 * Muestra los datos de un contacto, entre los que se debe incluir el registro
+		 * de las llamadas realizadas.
 		 */
-		
+
 		return "";
 	}
-	
+
 }
