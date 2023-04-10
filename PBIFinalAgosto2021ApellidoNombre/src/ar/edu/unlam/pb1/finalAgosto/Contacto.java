@@ -30,11 +30,26 @@ public class Contacto {
     private String celular= codigoDePais + codigoDeArea + NumeroCel;
    
    //CONSTRUCTOR
-    public Contacto(String eMail,String direccion) {
-    	this.eMail= eMail;
-    };
     
-    public void esEmailValido(String eMail) {
+    public Contacto(String nombreYapellido, String direccion, String eMail, int codPostal, String localidad,
+			Provincia provincias, boolean esCliente, boolean deseaSerLlamadoNuevamente, String codigoDePais,
+			String codigoDeArea, String numeroCel, String celular) {
+		super();
+		this.nombreYapellido = nombreYapellido;
+		this.direccion = direccion;
+		this.eMail = eMail;
+		this.codPostal = codPostal;
+		this.localidad = localidad;
+		this.provincias = provincias;
+		this.esCliente = esCliente;
+		this.deseaSerLlamadoNuevamente = deseaSerLlamadoNuevamente;
+		this.codigoDePais = codigoDePais;
+		this.codigoDeArea = codigoDeArea;
+		NumeroCel = numeroCel;
+		this.celular = celular;
+	}
+
+	public void esEmailValido(String eMail) {
 		/*
 		 * Eval�a si un String determinado puede ser almacenado como E-MAIL.
 		 */
