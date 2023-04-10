@@ -29,7 +29,11 @@ public class Contacto {
     private String  NumeroCel;
     private String celular= codigoDePais + codigoDeArea + NumeroCel;
    
-   
+   //CONSTRUCTOR
+    public Contacto(String eMail,String direccion) {
+    	this.eMail= eMail;
+    };
+    
     public void esEmailValido(String eMail) {
 		/*
 		 * Eval�a si un String determinado puede ser almacenado como E-MAIL.
