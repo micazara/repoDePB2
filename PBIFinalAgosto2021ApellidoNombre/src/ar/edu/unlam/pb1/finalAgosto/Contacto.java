@@ -26,27 +26,23 @@ public class Contacto {
 	// CELULAR
 	private String codigoDePais;
 	private String codigoDeArea;
-	private String NumeroCel;
-	private String celular = codigoDePais + codigoDeArea + NumeroCel;
+	private String numeroCel;
+	private String celular = codigoDePais + codigoDeArea + numeroCel;
 
 	// CONSTRUCTOR
 
-	public Contacto(String nombreYapellido, String direccion, String eMail, int codPostal, String localidad,
-			Provincia provincias, boolean esCliente, boolean deseaSerLlamadoNuevamente, String codigoDePais,
-			String codigoDeArea, String numeroCel, String celular) {
-		super();
+	public Contacto(String nombreYapellido, String direccion, String eMail, String localidad, Provincia provincia,
+			int codPostal, String codigoDePais, String codigoDeArea, String numCel) {
 		this.nombreYapellido = nombreYapellido;
 		this.direccion = direccion;
 		this.eMail = eMail;
-		this.codPostal = codPostal;
 		this.localidad = localidad;
-		this.provincias = provincias;
-		this.esCliente = esCliente;
-		this.deseaSerLlamadoNuevamente = deseaSerLlamadoNuevamente;
+		this.provincias = provincia;
+		this.codPostal = codPostal;
 		this.codigoDePais = codigoDePais;
 		this.codigoDeArea = codigoDeArea;
-		NumeroCel = numeroCel;
-		this.celular = celular;
+		this.numeroCel = numCel;
+		this.celular = codigoDePais + codigoDeArea + numeroCel;
 	}
 
 	public void esEmailValido(String eMail) {
@@ -58,16 +54,16 @@ public class Contacto {
 
 	private boolean verificarEmailValido(String eMailRecibido) {
 
-		 boolean contiene = false;
-		 char caracteres;
+		boolean contiene = false;
+		char caracteres;
 		for (int i = 0; i < eMailRecibido.length(); i++) {
-		 caracteres=eMailRecibido.charAt(i);
-		if (eMailRecibido=="@");
-		return contiene = true;
-		    }
-		return contiene;
+			caracteres = eMailRecibido.charAt(i);
+			if (eMailRecibido == "@")
+				;
+			return contiene = true;
 		}
-	
+		return contiene;
+	}
 
 	public boolean registrarNuevaLlamada(Llamada nueva) {
 		/*
@@ -80,9 +76,8 @@ public class Contacto {
 	public String toString() {
 		return "Contacto \n[ nombreYapellido=" + nombreYapellido + "\nDireccion=" + direccion + "\neMail=" + eMail
 				+ "\nCodPostal=" + codPostal + "\nLocalidad=" + localidad + "\nProvincias=" + provincias
-				+ "\nCodigoDePais=" + codigoDePais + "\nCodigoDeArea=" + codigoDeArea + "\nNumeroCel=" + NumeroCel
+				+ "\nCodigoDePais=" + codigoDePais + "\nCodigoDeArea=" + codigoDeArea + "\nNumeroCel=" + numeroCel
 				+ "\nCelular=" + celular + "]";
 	}
-	
 
 }
