@@ -113,12 +113,12 @@ public class InterfazCallCenter {
 				codigoDePais, codigoDeArea, numCel);
 		if (empresa.agregarNuevoContacto(contacto)) {
 			mostrarMensaje("********************************");
-			mostrarMensaje("Se pudo registrar la atencion : ");
+			mostrarMensaje("Se pudo registrar el nuevo contacto : ");
 			mostrarMensaje(contacto.toString());
 			mostrarMensaje("********************************");
 
 		} else {
-			mostrarMensaje("No se pudo registrar la atencion");
+			mostrarMensaje("No se pudo dar de alta un nuevo contacto");
 		}
 
 	}
