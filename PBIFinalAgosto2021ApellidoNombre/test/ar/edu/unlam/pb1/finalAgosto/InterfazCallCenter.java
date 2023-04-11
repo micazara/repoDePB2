@@ -1,6 +1,9 @@
 package ar.edu.unlam.pb1.finalAgosto;
 
+import java.util.Scanner;
+
 public class InterfazCallCenter {
+	Scanner teclado = new Scanner(System.in);
 	
 	public static void main(String args[]) {
 			
@@ -17,10 +20,13 @@ public class InterfazCallCenter {
 		System.out.println("Holaa");
 	}
 	
+	String nombreEmpresa= "UNLaM-Call";
+	mostrarMensaje("Bienvenido a " + nombreEmpresa);
 	private static void incorporarZonaDeCobertura() {
 		/*
 		 * Se registra un nuevo c�digo postal dentro de la zona de cobertura de la empresa
 		 */
+		
 	}
 	
 	private static void darDeAltaNuevoContacto() {
@@ -45,5 +51,8 @@ public class InterfazCallCenter {
 		/*
 		 * Se visualiza la informaci�n del contacto, incluso el listado de las llamadas que se le hicieron
 		 */
+	}
+	private static void mostrarMensaje(String mensaje) {
+		System.out.println(mensaje);
 	}
 }
