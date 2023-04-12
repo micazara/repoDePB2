@@ -22,6 +22,10 @@ public class Empresa {
 		return nombreEmpresa;
 	}
 	
+	public Contacto [] getContactos() {
+		return contactos;
+	}
+	
 	public boolean agregarNuevoContacto(Contacto nuevo) {
 	
 		/*

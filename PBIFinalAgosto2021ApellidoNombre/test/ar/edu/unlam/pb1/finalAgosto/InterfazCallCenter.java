@@ -1,6 +1,7 @@
 package ar.edu.unlam.pb1.finalAgosto;
 
 import java.util.Scanner;
+import ar.edu.unlam.pb1.finalAgosto.Contacto;
 
 public class InterfazCallCenter {
 	// TECLADO
@@ -42,6 +43,7 @@ public class InterfazCallCenter {
 				realizarNuevaLlamada(teclado, empresa);
 				break;
 			case 4:
+//				empresa.
 				verInformacionDelContacto();
 				break;
 			default:
@@ -61,6 +63,7 @@ public class InterfazCallCenter {
 		 */
 
 		mostrarMensaje("INCORPORAR NUEVA ZONA DE COBERTURA");
+		System.out.println("PROBANDOOOOO SOY MICA!!!");
 		mostrarMensaje("....................................");
 		mostrarMensaje("Ingrese un -nuevo- codigo postal");
 		Integer codigoPostal = teclado.nextInt();
@@ -109,20 +112,20 @@ public class InterfazCallCenter {
 		String numCel = teclado.next();
 		boolean esCliente = false;
 		do {
-		mostrarMensaje("Es cliente?" + " Ingrese 1 para si o 2 para no");
-		opcion=teclado.nextInt();
-		switch(opcion) {
-		case 1:
-			esCliente= true;
-		case 2:
-			esCliente= false;
-		default:
-			mostrarMensaje("opcion incorrecta");
-		}
-		}while(opcion!=1 || opcion !=2);		
+			mostrarMensaje("Es cliente?" + " Ingrese 1 para si o 2 para no");
+			opcion = teclado.nextInt();
+			switch (opcion) {
+			case 1:
+				esCliente = true;
+			case 2:
+				esCliente = false;
+			default:
+				mostrarMensaje("opcion incorrecta");
+			}
+		} while (opcion != 1 || opcion != 2);
 		// CREO AL CONTACTO
 		Contacto contacto = new Contacto(nombreYapellido, direccion, eMail, localidad, provincia, codPostal,
-				codigoDePais, codigoDeArea, numCel,esCliente);
+				codigoDePais, codigoDeArea, numCel, esCliente);
 		if (empresa.agregarNuevoContacto(contacto)) {
 			mostrarMensaje("********************************");
 			mostrarMensaje("Se pudo registrar el nuevo contacto : ");
@@ -146,8 +149,8 @@ public class InterfazCallCenter {
 		 * intento en el futuro). c. Observaciones: Texto libre donde el operador deja
 		 * registro de lo conversado.
 		 */
-	 empresa.realizarNuevaLlamada();
-		
+		empresa.realizarNuevaLlamada();
+
 	}
 
 	private static void verInformacionDelContacto() {
@@ -155,6 +158,12 @@ public class InterfazCallCenter {
 		 * Se visualiza la informaci�n del contacto, incluso el listado de las llamadas
 		 * que se le hicieron
 		 */
+
+//		for (int i = 0; i < atencionesEspecie.length; i++) {
+//			if (atencionesEspecie[i] != null) {
+//				mostrarMensaje("\nAtencion: " + atencionesEspecie[i].toString());
+//			}
+//		} 
 	}
 
 	private static void mostrarMensaje(String mensaje) {
