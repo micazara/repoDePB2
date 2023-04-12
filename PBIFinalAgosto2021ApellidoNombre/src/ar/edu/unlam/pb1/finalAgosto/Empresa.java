@@ -19,7 +19,7 @@ public class Empresa {
 		 * Devuelve el nombre de la empresa
 		 */
 		
-		return "";
+		return nombreEmpresa;
 	}
 	
 	public boolean agregarNuevoContacto(Contacto nuevo) {
@@ -27,6 +27,16 @@ public class Empresa {
 		/*
 		 * Incorpora un nuevo contacto a la empresa
 		 */
+		boolean sePudoAgregar=true;
+		for (int i = 0; i < contactos.length; i++) {
+			if(contactos[i]!=null ||contactos[i].getNombreYapellido()!=nuevo.getNombreYapellido() ) {
+				contactos[i]=nuevo;
+			return sePudoAgregar;
+			}else {
+				sePudoAgregar=false;
+			}
+			
+		}
 		
 		return false;
 	}
@@ -56,5 +66,25 @@ public class Empresa {
 		 */
 
 		return null;
+	}
+
+
+
+	public void realizarNuevaLlamada() {
+		/*
+		 * Busca un candidato, muestra los datos del mismo, y permite almacenar el
+		 * resultado de la llamada.
+		 * 
+		 * a. Si la llamada fue exitosa (en ese caso el contacto pasa a ser cliente, y
+		 * no se lo debe volver a llamar). b. Si el contacto no desea ser llamado
+		 * nuevamente (la llamada pudo no haber sido exitosa, pero se haga un nuevo
+		 * intento en el futuro). c. Observaciones: Texto libre donde el operador deja
+		 * registro de lo conversado.
+		 */
+		
+		for (int i = 0; i < contactos.length; i++) {
+			
+		}
+		
 	}
 }

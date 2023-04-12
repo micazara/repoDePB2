@@ -32,7 +32,7 @@ public class Contacto {
 	// CONSTRUCTOR
 
 	public Contacto(String nombreYapellido, String direccion, String eMail, String localidad, Provincia provincia,
-			int codPostal, String codigoDePais, String codigoDeArea, String numCel) {
+			int codPostal, String codigoDePais, String codigoDeArea, String numCel, boolean esCliente) {
 		this.nombreYapellido = nombreYapellido;
 		this.direccion = direccion;
 		this.eMail = eMail;
@@ -43,6 +43,31 @@ public class Contacto {
 		this.codigoDeArea = codigoDeArea;
 		this.numeroCel = numCel;
 		this.celular = codigoDePais + codigoDeArea + numeroCel;
+		this.esCliente=esCliente;
+	}
+
+	public String getNombreYapellido() {
+		return nombreYapellido;
+	}
+
+	public void setNombreYapellido(String nombreYapellido) {
+		this.nombreYapellido = nombreYapellido;
+	}
+
+	public boolean isEsCliente() {
+		return esCliente;
+	}
+
+	public void setEsCliente(boolean esCliente) {
+		this.esCliente = esCliente;
+	}
+
+	public String getNumeroCel() {
+		return numeroCel;
+	}
+
+	public void setNumeroCel(String numeroCel) {
+		this.numeroCel = numeroCel;
 	}
 
 	public void esEmailValido(String eMail) {

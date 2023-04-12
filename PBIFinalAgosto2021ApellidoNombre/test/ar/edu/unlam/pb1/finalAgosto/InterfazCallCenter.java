@@ -39,7 +39,7 @@ public class InterfazCallCenter {
 				darDeAltaNuevoContacto(teclado, empresa);
 				break;
 			case 3:
-				realizarNuevaLlamada();
+				realizarNuevaLlamada(teclado, empresa);
 				break;
 			case 4:
 				verInformacionDelContacto();
@@ -107,10 +107,22 @@ public class InterfazCallCenter {
 		String codigoDeArea = teclado.next();
 		mostrarMensaje("Ingrese su numero de celular");
 		String numCel = teclado.next();
-
+		boolean esCliente = false;
+		do {
+		mostrarMensaje("Es cliente?" + " Ingrese 1 para si o 2 para no");
+		opcion=teclado.nextInt();
+		switch(opcion) {
+		case 1:
+			esCliente= true;
+		case 2:
+			esCliente= false;
+		default:
+			mostrarMensaje("opcion incorrecta");
+		}
+		}while(opcion!=1 || opcion !=2);		
 		// CREO AL CONTACTO
 		Contacto contacto = new Contacto(nombreYapellido, direccion, eMail, localidad, provincia, codPostal,
-				codigoDePais, codigoDeArea, numCel);
+				codigoDePais, codigoDeArea, numCel,esCliente);
 		if (empresa.agregarNuevoContacto(contacto)) {
 			mostrarMensaje("********************************");
 			mostrarMensaje("Se pudo registrar el nuevo contacto : ");
@@ -123,7 +135,7 @@ public class InterfazCallCenter {
 
 	}
 
-	private static void realizarNuevaLlamada() {
+	private static void realizarNuevaLlamada(Scanner teclado, Empresa empresa) {
 		/*
 		 * Busca un candidato, muestra los datos del mismo, y permite almacenar el
 		 * resultado de la llamada.
@@ -134,6 +146,8 @@ public class InterfazCallCenter {
 		 * intento en el futuro). c. Observaciones: Texto libre donde el operador deja
 		 * registro de lo conversado.
 		 */
+	 empresa.realizarNuevaLlamada();
+		
 	}
 
 	private static void verInformacionDelContacto() {
