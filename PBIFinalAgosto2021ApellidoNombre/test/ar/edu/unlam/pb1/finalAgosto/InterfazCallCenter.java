@@ -9,6 +9,11 @@ public class InterfazCallCenter {
 
 	private static final int CANTIDAD_MAXIMA_CONTACTOS = 25;
 
+	private static final int INCORPORAR_ZONA_COBERTURA = 1;
+	private static final int NUEVO_CONTACTO = 2;
+	private static final int REALIZAR_NUEVA_LLAMADA = 3;
+	private static final int VER_INFO_CONTACTOS = 4;
+
 	public static void main(String args[]) {
 		// CREO LA EMPRESA, HARDCODEO NOMBRE Y MAX CONTACTOS
 		String nombreEmpresa = "Unlam-Call";
@@ -33,18 +38,18 @@ public class InterfazCallCenter {
 		opcion = teclado.nextInt();
 		do {
 			switch (opcion) {
-			case 1:
+			case INCORPORAR_ZONA_COBERTURA:
 				incorporarZonaDeCobertura(teclado, empresa);
 				break;
-			case 2:
+			case NUEVO_CONTACTO:
 				darDeAltaNuevoContacto(teclado, empresa);
 				break;
-			case 3:
+			case REALIZAR_NUEVA_LLAMADA:
 				realizarNuevaLlamada(teclado, empresa);
 				break;
-			case 4:
-//				empresa.
-				verInformacionDelContacto();
+			case VER_INFO_CONTACTOS:
+				Contacto[] contactos = empresa.getContactos();
+				verInformacionDelContacto(contactos);
 				break;
 			default:
 				mostrarMensaje("La opcion ingresada no existe :( intente otra vez ;) ");
@@ -153,17 +158,17 @@ public class InterfazCallCenter {
 
 	}
 
-	private static void verInformacionDelContacto() {
+	private static void verInformacionDelContacto(Contacto[] contactos) {
 		/*
 		 * Se visualiza la informaci�n del contacto, incluso el listado de las llamadas
 		 * que se le hicieron
 		 */
 
-//		for (int i = 0; i < atencionesEspecie.length; i++) {
-//			if (atencionesEspecie[i] != null) {
-//				mostrarMensaje("\nAtencion: " + atencionesEspecie[i].toString());
-//			}
-//		} 
+		for (int i = 0; i < contactos.length; i++) {
+			if (contactos[i] != null) {
+				mostrarMensaje("\nContacto: " + contactos[i].toString());
+			}
+		}
 	}
 
 	private static void mostrarMensaje(String mensaje) {
