@@ -20,6 +20,8 @@ public class CasosDePrueba {
 
 		// Validacion
 		assertNotNull(empresa);
+		
+		System.out.println("Probandoooooo");
 	}
 
 	@Test
