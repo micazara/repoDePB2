@@ -12,6 +12,13 @@ public class Efectivo extends Empleado {
 		this.obraSocial = obraSocial;
 	}
 
+	@Override
+	public boolean abrirPuerta() {
+		// La puerta se abre si el tipo coincide con el tipo de la credencial
+		
+		return false;
+	}
+
 
 	
 

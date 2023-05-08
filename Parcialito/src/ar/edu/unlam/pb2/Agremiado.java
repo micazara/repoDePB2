@@ -2,18 +2,18 @@ package ar.edu.unlam.pb2;
 
 import java.time.LocalDate;
 
-public class Agremiado extends Efectivo{
-	
-	//ATRIBUTO DE CLASE
+public class Agremiado extends Efectivo {
+
+	// ATRIBUTO DE CLASE
 	private Gremio gremio;
-	
-	//CONSTRUCTOR
+
+	// CONSTRUCTOR
 
 	public Agremiado(String nombre, String apellido, Long CUIL, Long legajo, LocalDate fingreso, LocalDate fnac,
 			Departamento departamento, ObraSocial obraSocial, Gremio gremio, Credencial credencial) {
 		super(nombre, apellido, CUIL, legajo, fingreso, fnac, departamento, obraSocial, credencial);
-		
-		this.gremio=gremio;
+
+		this.gremio = gremio;
 	}
 
 	protected Gremio getGremio() {
@@ -23,8 +23,5 @@ public class Agremiado extends Efectivo{
 	protected void setGremio(Gremio gremio) {
 		this.gremio = gremio;
 	}
-
-	
-
 
 }

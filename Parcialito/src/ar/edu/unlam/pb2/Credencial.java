@@ -52,4 +52,6 @@ public class Credencial {
 		Credencial other = (Credencial) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
 }
