@@ -551,12 +551,12 @@ public class CasosDePrueba {
 				credencial);
 		efec2 = new Efectivo("Cele", "Moscovich", 222222222l, 1653165l, fIngreso2, fNac2, departamento2, obraSocial,
 				credencial);
-		
+
 		agreUno = new Agremiado("Baby", "Veira", 4568765413564789l, 87654l, fIngreso3, fNac3, departamento3, obraSocial,
 				gremioTheOne, credencial);
 		agreDos = new Agremiado("Camila", "Flores", 54687l, 146585l, fIngreso4, fNac4, departamento4, obraSocial,
 				gremioTheSecond, credencial);
-		
+
 		empresa.agregarEmpleado(efec1);
 		empresa.agregarEmpleado(efec2);
 		empresa.agregarEmpleado(agreDos);
@@ -571,7 +571,7 @@ public class CasosDePrueba {
 
 	@Test
 	public void queUnEmpleadoPuedaAbrirUnaPuertaConLaCredencial() {
-		
+
 		// Datos de entrada
 		String nombre, apellido;
 		Long CUIL;
@@ -585,7 +585,6 @@ public class CasosDePrueba {
 		Gremio gremio;
 		Agremiado zara;
 		Credencial credencial;
-		
 
 		// Ejecucion
 		nombre = "Bella";
@@ -600,7 +599,7 @@ public class CasosDePrueba {
 		fnac = LocalDate.of(2003, 07, 21);
 		departamento = Departamento.VENTAS;
 		credencial = new Credencial(5, TipoCredencial.ALLACCESS);
-		
+
 		// EL AGREMIADO
 		zara = new Agremiado(nombreObraSocial, apellido, CUIL, legajo, fingreso, fnac, departamento, obraSocial, gremio,
 				credencial);
@@ -610,15 +609,57 @@ public class CasosDePrueba {
 	}
 
 	@Test
-	public void queSePuedaCrearUnaPuerta() {
-		TipoDePuerta tipoPuerta;
+	public void queSePuedaCrearUnaPuertaDeAlPatio() {
 		Integer codigo;
 		Puerta puerta;
-		
-		tipoPuerta = TipoDePuerta.RESIDENTE;
+
 		codigo = 6321;
-		puerta = new Puerta (tipoPuerta, codigo);
-		
+		puerta = new Puerta(codigo);
+
 		assertNotNull(puerta);
+	}
+
+	@Test
+	public void queUnEfectivoPuedaAbrirLaPuerta() {
+
+		// Datos de entrada
+		String nombre, apellido;
+		Long CUIL;
+		Long legajo;
+		LocalDate fingreso;
+		LocalDate fnac;
+		Empleado mica;
+		Departamento departamento;
+		Credencial credencial;
+
+		Efectivo efec;
+		ObraSocial obraSocial;
+		Long codigoObraSocial;
+		String nombreObraSocial;
+
+		Integer codigo;
+		Puerta puertaVisitante;
+		Puerta puertaResidente;
+		Puerta puertaVigilancia;
+
+		// Ejecucion
+		fingreso = LocalDate.of(2023, 05, 13);
+		fnac = LocalDate.of(2003, 07, 21);
+		departamento = Departamento.CONTABILIDAD;
+		credencial = new Credencial(5, TipoCredencial.ALLACCESS);
+		codigoObraSocial = 165165l;
+		nombreObraSocial = "Osde";
+
+		obraSocial = new ObraSocial(codigoObraSocial, nombreObraSocial);
+		efec = new Efectivo("Micaela", "Zara", 132165465l, 2313153l, fingreso, fnac, departamento, obraSocial,
+				credencial);
+
+		codigo = 6321;
+		puertaVigilancia = new Puerta(codigo);
+
+		efec.abrirPuerta(puertaVigilancia);
+
+		// Validacion
+
 	}
 }

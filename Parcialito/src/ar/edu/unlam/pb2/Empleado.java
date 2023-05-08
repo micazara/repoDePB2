@@ -109,7 +109,9 @@ public abstract class Empleado {
 		return Objects.equals(CUIL, other.CUIL);
 	}
 	
-	public abstract boolean abrirPuerta();
+	public abstract boolean abrirPuerta(Puerta puerta);
+
+	
 	
 	
 

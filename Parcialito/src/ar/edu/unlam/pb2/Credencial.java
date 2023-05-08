@@ -14,6 +14,7 @@ public class Credencial {
 		
 		this.id = id;
 		this.tipoDeCredencial = tipoDeCredencial;
+		
 	}
 
 	protected Integer getId() {
