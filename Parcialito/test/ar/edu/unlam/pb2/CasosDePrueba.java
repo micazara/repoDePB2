@@ -104,10 +104,10 @@ public class CasosDePrueba {
 		Agremiado zara;
 
 		// Ejecucion
-		nombre= "Bella";
-		apellido="De La Rosa";
-		legajo=5l;
-		CUIL=45L;
+		nombre = "Bella";
+		apellido = "De La Rosa";
+		legajo = 5l;
+		CUIL = 45L;
 		codigoObraSocial = 165165l;
 		nombreObraSocial = "Osde";
 		obraSocial = new ObraSocial(codigoObraSocial, nombreObraSocial);
@@ -115,10 +115,9 @@ public class CasosDePrueba {
 		fingreso = LocalDate.of(2023, 05, 13);
 		fnac = LocalDate.of(2003, 07, 21);
 		departamento = Departamento.VENTAS;
-		//EL AGREMIADO
-		zara = new Agremiado(nombreObraSocial, apellido, CUIL, legajo, fingreso,
-				fnac, departamento, obraSocial,gremio);
-		
+		// EL AGREMIADO
+		zara = new Agremiado(nombreObraSocial, apellido, CUIL, legajo, fingreso, fnac, departamento, obraSocial,
+				gremio);
 
 		// Validacion
 		assertNotNull(zara);
@@ -333,6 +332,7 @@ public class CasosDePrueba {
 		assertEquals(CANTIDAD_ESPERADA_EFECTIVOS, empresa.filtrarCantidadDeEfectivos());
 
 	}
+
 	@Test
 	public void queNoSePuedanCrearDosEmpleadosAgremiadosConElMismoCUIL() {
 
@@ -359,23 +359,24 @@ public class CasosDePrueba {
 		String nombreEmpresa;
 		Gremio dos;
 		ObraSocial obraSocialSegunda;
-		
 
 		// Ejecucion
 		fIngreso1 = LocalDate.of(2023, 05, 13);
 		fNac1 = LocalDate.of(2003, 07, 21);
 		departamento1 = Departamento.CONTABILIDAD;
-		uno= new Gremio(5l,"ventas","RIP");
-		obraSocialprimera= new ObraSocial (788l,"pami");
+		uno = new Gremio(5l, "ventas", "RIP");
+		obraSocialprimera = new ObraSocial(788l, "pami");
 
 		fIngreso2 = LocalDate.of(2020, 01, 02);
 		fNac2 = LocalDate.of(1999, 10, 13);
 		departamento2 = Departamento.RECURSOS_HUMANOS;
-		dos= new Gremio(5l,"pesqueros","FISH");
-		obraSocialSegunda= new ObraSocial (57l,"pami");
+		dos = new Gremio(5l, "pesqueros", "FISH");
+		obraSocialSegunda = new ObraSocial(57l, "pami");
 
-		mari = new Agremiado("Mari", "Lee", 132165465l, 2313153l, fIngreso1, fNac1, departamento1, obraSocialprimera,uno);
-		andy = new Agremiado("Andy", "Borgeat", 132165465l, 2313153l, fIngreso2, fNac2, departamento2, obraSocialSegunda,dos);
+		mari = new Agremiado("Mari", "Lee", 132165465l, 2313153l, fIngreso1, fNac1, departamento1, obraSocialprimera,
+				uno);
+		andy = new Agremiado("Andy", "Borgeat", 132165465l, 2313153l, fIngreso2, fNac2, departamento2,
+				obraSocialSegunda, dos);
 
 		nombreEmpresa = "X";
 		empresa = new Empresa(nombreEmpresa);
@@ -386,56 +387,93 @@ public class CasosDePrueba {
 
 	}
 
+	@Test
+	public void queSePuedaFiltrarLaCantidadDeEfectivosQueSonAgremiados() {
 
-//	@Test
-//	public void queSePuedaFiltrarLaCantidadDeAgremiados() {
-//
-//		// Datos de entrada
-//		String nombre, apellido;
-//		Long CUIL;
-//		Long legajo;
-//		LocalDate fIngreso1;
-//		LocalDate fNac1;
-//		Empleado mica;
-//		Departamento departamento1;
-//
-//		Contratado mari;
-//		LocalDate fCaducidad1;
-//
-//		LocalDate fIngreso2;
-//		LocalDate fNac2;
-//		Departamento departamento2;
-//		LocalDate fCaducidad2;
-//		Contratado andy;
-//
-//		Empresa empresa;
-//		String nombreEmpresa;
-//
-//		Integer CANTIDAD_ESPERADA_CONTRATADOS = 2;
-//
-//		// Ejecucion
-//		fIngreso1 = LocalDate.of(2023, 05, 13);
-//		fNac1 = LocalDate.of(2003, 07, 21);
-//		departamento1 = Departamento.CONTABILIDAD;
-//		fCaducidad1 = LocalDate.of(2024, 03, 01);
-//
-//		fIngreso2 = LocalDate.of(2020, 01, 02);
-//		fNac2 = LocalDate.of(1999, 10, 13);
-//		departamento2 = Departamento.RECURSOS_HUMANOS;
-//		fCaducidad2 = LocalDate.of(2024, 06, 06);
-//
-//		mari = new Contratado("Mari", "Lee", 132165465l, 2313153l, fIngreso1, fNac1, departamento1, fCaducidad1);
-//		andy = new Contratado("Andy", "Borgeat", 111111111l, 2313153l, fIngreso2, fNac2, departamento2, fCaducidad2);
-//
-//		nombreEmpresa = "X";
-//		empresa = new Empresa(nombreEmpresa);
-//
-//		empresa.agregarEmpleado(mari);
-//		empresa.agregarEmpleado(andy);
-//
-//		// Validacion
-//		assertEquals(CANTIDAD_ESPERADA_CONTRATADOS, empresa.filtrarCantidadDeContratados());
-//
-//	}
+		// Datos de entrada
+		String nombre, apellido;
+		Long CUIL;
+		Long legajo;
+		LocalDate fIngreso1;
+		LocalDate fNac1;
+		Departamento departamento1;
+
+		Efectivo efec1;
+		Efectivo efec2;
+		LocalDate fIngreso2;
+		LocalDate fNac2;
+		Departamento departamento2;
+
+		Agremiado agreUno;
+		Agremiado agreDos;
+
+		LocalDate fIngreso3;
+		LocalDate fNac3;
+		LocalDate fIngreso4;
+		LocalDate fNac4;
+		Departamento departamento3;
+		Departamento departamento4;
+
+		ObraSocial obraSocial;
+		Long codigoObraSocial;
+		String nombreObraSocial;
+
+		Empresa empresa;
+		String nombreEmpresa;
+
+		Integer CANTIDAD_ESPERADA_EFECTIVOS = 4;
+		Integer CANTIDAD_ESPERADA_AGREMIADOS = 2;
+
+		// Ejecucion
+
+		// efec 1
+		fIngreso1 = LocalDate.of(2023, 05, 13);
+		fNac1 = LocalDate.of(2003, 07, 21);
+		departamento1 = Departamento.CONTABILIDAD;
+		codigoObraSocial = 165165l;
+		nombreObraSocial = "Osde";
+
+		// efec2
+		fIngreso2 = LocalDate.of(2022, 03, 15);
+		fNac2 = LocalDate.of(2004, 06, 15);
+		departamento2 = Departamento.RECURSOS_HUMANOS;
+
+		// agreUno
+		fIngreso3 = LocalDate.of(2023, 04, 11);
+		fNac3 = LocalDate.of(2003, 07, 29);
+		departamento3 = Departamento.CONTABILIDAD;
+		Gremio gremioTheOne;
+
+		// agreDos
+		fIngreso4 = LocalDate.of(2023, 02, 11);
+		fNac4 = LocalDate.of(2003, 07, 05);
+		departamento4 = Departamento.VENTAS;
+		Gremio gremioTheSecond;
+
+		nombreEmpresa = "X";
+		empresa = new Empresa(nombreEmpresa);
+
+		obraSocial = new ObraSocial(codigoObraSocial, nombreObraSocial);
+		gremioTheOne = new Gremio(45l, "mercantil", "LOSBEST");
+		gremioTheSecond = new Gremio(46l, "zapateros", "DUENDES");
+
+		// agremiado 1
+
+		efec1 = new Efectivo("Micaela", "Zara", 132165465l, 2313153l, fIngreso1, fNac1, departamento1, obraSocial);
+		efec2 = new Efectivo("Cele", "Moscovich", 222222222l, 1653165l, fIngreso2, fNac2, departamento2, obraSocial);
+		agreUno = new Agremiado("Baby", "Veira", 4568765413564789l, 87654l, fIngreso3, fNac3, departamento3,
+				obraSocial, gremioTheOne);
+		agreDos=new Agremiado ("Camila","Flores",54687l,146585l,fIngreso4,fNac4,departamento4,obraSocial,gremioTheSecond);
+		empresa.agregarEmpleado(efec1);
+		empresa.agregarEmpleado(efec2);
+		empresa.agregarEmpleado(agreDos);
+		empresa.agregarEmpleado(agreUno);
+
+		// Validacion
+
+		assertEquals(CANTIDAD_ESPERADA_EFECTIVOS, empresa.filtrarCantidadDeEfectivos());
+		assertEquals(CANTIDAD_ESPERADA_AGREMIADOS, empresa.filtrarCantidadAgremiados());
+
+	}
 
 }

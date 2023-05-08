@@ -61,4 +61,16 @@ public class Empresa {
 
 		return cantidad;
 	}
+
+	public Integer filtrarCantidadAgremiados() {
+		Integer cantidad = 0;
+
+		for (Empleado empleado : empleados) {
+			if (empleado instanceof Agremiado) {
+				cantidad++;
+			}
+		}
+
+		return cantidad;
+	}
 }
