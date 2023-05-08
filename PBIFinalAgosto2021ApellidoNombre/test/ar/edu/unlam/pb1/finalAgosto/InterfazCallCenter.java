@@ -114,7 +114,7 @@ public class InterfazCallCenter {
 		switch(opcion) {
 		case 1:
 			esCliente= true;
-		case 2:
+		case 2:"In"
 			esCliente= false;
 		default:
 			mostrarMensaje("opcion incorrecta");
