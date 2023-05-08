@@ -1,12 +1,18 @@
 package ar.edu.unlam.pb1.finalAgosto;
 
 import java.util.Scanner;
+import ar.edu.unlam.pb1.finalAgosto.Contacto;
 
 public class InterfazCallCenter {
 	// TECLADO
 	static Scanner teclado = new Scanner(System.in);
 
 	private static final int CANTIDAD_MAXIMA_CONTACTOS = 25;
+
+	private static final int INCORPORAR_ZONA_COBERTURA = 1;
+	private static final int NUEVO_CONTACTO = 2;
+	private static final int REALIZAR_NUEVA_LLAMADA = 3;
+	private static final int VER_INFO_CONTACTOS = 4;
 
 	public static void main(String args[]) {
 		// CREO LA EMPRESA, HARDCODEO NOMBRE Y MAX CONTACTOS
@@ -32,17 +38,18 @@ public class InterfazCallCenter {
 		opcion = teclado.nextInt();
 		do {
 			switch (opcion) {
-			case 1:
+			case INCORPORAR_ZONA_COBERTURA:
 				incorporarZonaDeCobertura(teclado, empresa);
 				break;
-			case 2:
+			case NUEVO_CONTACTO:
 				darDeAltaNuevoContacto(teclado, empresa);
 				break;
-			case 3:
+			case REALIZAR_NUEVA_LLAMADA:
 				realizarNuevaLlamada(teclado, empresa);
 				break;
-			case 4:
-				verInformacionDelContacto();
+			case VER_INFO_CONTACTOS:
+				Contacto[] contactos = empresa.getContactos();
+				verInformacionDelContacto(contactos);
 				break;
 			default:
 				mostrarMensaje("La opcion ingresada no existe :( intente otra vez ;) ");
@@ -61,6 +68,7 @@ public class InterfazCallCenter {
 		 */
 
 		mostrarMensaje("INCORPORAR NUEVA ZONA DE COBERTURA");
+		System.out.println("PROBANDOOOOO SOY MICA!!!");
 		mostrarMensaje("....................................");
 		mostrarMensaje("Ingrese un -nuevo- codigo postal");
 		Integer codigoPostal = teclado.nextInt();
@@ -109,6 +117,7 @@ public class InterfazCallCenter {
 		String numCel = teclado.next();
 		boolean esCliente = false;
 		do {
+<<<<<<< HEAD
 		mostrarMensaje("Es cliente?" + " Ingrese 1 para si o 2 para no");
 		opcion=teclado.nextInt();
 		switch(opcion) {
@@ -120,9 +129,22 @@ public class InterfazCallCenter {
 			mostrarMensaje("opcion incorrecta");
 		}
 		}while(opcion!=1 || opcion !=2);		
+
+			mostrarMensaje("Es cliente?" + " Ingrese 1 para si o 2 para no");
+			opcion = teclado.nextInt();
+			switch (opcion) {
+			case 1:
+				esCliente = true;
+			case 2:
+				esCliente = false;
+			default:
+				mostrarMensaje("opcion incorrecta");
+			
+		} while (opcion != 1 || opcion != 2);
+
 		// CREO AL CONTACTO
 		Contacto contacto = new Contacto(nombreYapellido, direccion, eMail, localidad, provincia, codPostal,
-				codigoDePais, codigoDeArea, numCel,esCliente);
+				codigoDePais, codigoDeArea, numCel, esCliente);
 		if (empresa.agregarNuevoContacto(contacto)) {
 			mostrarMensaje("********************************");
 			mostrarMensaje("Se pudo registrar el nuevo contacto : ");
@@ -146,15 +168,21 @@ public class InterfazCallCenter {
 		 * intento en el futuro). c. Observaciones: Texto libre donde el operador deja
 		 * registro de lo conversado.
 		 */
-	 empresa.realizarNuevaLlamada();
-		
+		empresa.realizarNuevaLlamada();
+
 	}
 
-	private static void verInformacionDelContacto() {
+	private static void verInformacionDelContacto(Contacto[] contactos) {
 		/*
 		 * Se visualiza la informaci�n del contacto, incluso el listado de las llamadas
 		 * que se le hicieron
 		 */
+
+		for (int i = 0; i < contactos.length; i++) {
+			if (contactos[i] != null) {
+				mostrarMensaje("\nContacto: " + contactos[i].toString());
+			}
+		}
 	}
 
 	private static void mostrarMensaje(String mensaje) {
