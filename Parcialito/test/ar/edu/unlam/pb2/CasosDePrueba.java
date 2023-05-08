@@ -20,7 +20,7 @@ public class CasosDePrueba {
 
 		// Validacion
 		assertNotNull(empresa);
-		
+
 		System.out.println("Probandoooooo");
 	}
 
@@ -82,6 +82,46 @@ public class CasosDePrueba {
 
 		// Validacion
 		assertNotNull(efec);
+		assertNotNull(obraSocial);
+	}
+
+	@Test
+	public void queSePuedaCrearUnTipoAgremiadoDeEfectivo() {
+
+		// Datos de entrada
+		String nombre, apellido;
+		Long CUIL;
+		Long legajo;
+		LocalDate fingreso;
+		LocalDate fnac;
+		Departamento departamento;
+		ObraSocial obraSocial;
+		Long codigoObraSocial;
+		String nombreObraSocial;
+
+		// EL AGREMIADO PERTENECE A UN GREMIO
+		Gremio gremio;
+		Agremiado zara;
+
+		// Ejecucion
+		nombre= "Bella";
+		apellido="De La Rosa";
+		legajo=5l;
+		CUIL=45L;
+		codigoObraSocial = 165165l;
+		nombreObraSocial = "Osde";
+		obraSocial = new ObraSocial(codigoObraSocial, nombreObraSocial);
+		gremio = new Gremio(15l, "mercantil", "BPr");
+		fingreso = LocalDate.of(2023, 05, 13);
+		fnac = LocalDate.of(2003, 07, 21);
+		departamento = Departamento.VENTAS;
+		//EL AGREMIADO
+		zara = new Agremiado(nombreObraSocial, apellido, CUIL, legajo, fingreso,
+				fnac, departamento, obraSocial,gremio);
+		
+
+		// Validacion
+		assertNotNull(zara);
 		assertNotNull(obraSocial);
 	}
 
@@ -293,4 +333,109 @@ public class CasosDePrueba {
 		assertEquals(CANTIDAD_ESPERADA_EFECTIVOS, empresa.filtrarCantidadDeEfectivos());
 
 	}
+	@Test
+	public void queNoSePuedanCrearDosEmpleadosAgremiadosConElMismoCUIL() {
+
+		// Datos de entrada
+		String nombre, apellido;
+		Long CUIL;
+		Long legajo;
+		LocalDate fIngreso1;
+		LocalDate fNac1;
+		Departamento departamento1;
+
+		Agremiado mari;
+		LocalDate fCaducidad1;
+
+		LocalDate fIngreso2;
+		LocalDate fNac2;
+		Departamento departamento2;
+		LocalDate fCaducidad2;
+		Agremiado andy;
+		Gremio uno;
+		ObraSocial obraSocialprimera;
+
+		Empresa empresa;
+		String nombreEmpresa;
+		Gremio dos;
+		ObraSocial obraSocialSegunda;
+		
+
+		// Ejecucion
+		fIngreso1 = LocalDate.of(2023, 05, 13);
+		fNac1 = LocalDate.of(2003, 07, 21);
+		departamento1 = Departamento.CONTABILIDAD;
+		uno= new Gremio(5l,"ventas","RIP");
+		obraSocialprimera= new ObraSocial (788l,"pami");
+
+		fIngreso2 = LocalDate.of(2020, 01, 02);
+		fNac2 = LocalDate.of(1999, 10, 13);
+		departamento2 = Departamento.RECURSOS_HUMANOS;
+		dos= new Gremio(5l,"pesqueros","FISH");
+		obraSocialSegunda= new ObraSocial (57l,"pami");
+
+		mari = new Agremiado("Mari", "Lee", 132165465l, 2313153l, fIngreso1, fNac1, departamento1, obraSocialprimera,uno);
+		andy = new Agremiado("Andy", "Borgeat", 132165465l, 2313153l, fIngreso2, fNac2, departamento2, obraSocialSegunda,dos);
+
+		nombreEmpresa = "X";
+		empresa = new Empresa(nombreEmpresa);
+
+		// Validacion
+		assertTrue(empresa.agregarEmpleado(mari));
+		assertFalse(empresa.agregarEmpleado(andy));
+
+	}
+
+
+//	@Test
+//	public void queSePuedaFiltrarLaCantidadDeAgremiados() {
+//
+//		// Datos de entrada
+//		String nombre, apellido;
+//		Long CUIL;
+//		Long legajo;
+//		LocalDate fIngreso1;
+//		LocalDate fNac1;
+//		Empleado mica;
+//		Departamento departamento1;
+//
+//		Contratado mari;
+//		LocalDate fCaducidad1;
+//
+//		LocalDate fIngreso2;
+//		LocalDate fNac2;
+//		Departamento departamento2;
+//		LocalDate fCaducidad2;
+//		Contratado andy;
+//
+//		Empresa empresa;
+//		String nombreEmpresa;
+//
+//		Integer CANTIDAD_ESPERADA_CONTRATADOS = 2;
+//
+//		// Ejecucion
+//		fIngreso1 = LocalDate.of(2023, 05, 13);
+//		fNac1 = LocalDate.of(2003, 07, 21);
+//		departamento1 = Departamento.CONTABILIDAD;
+//		fCaducidad1 = LocalDate.of(2024, 03, 01);
+//
+//		fIngreso2 = LocalDate.of(2020, 01, 02);
+//		fNac2 = LocalDate.of(1999, 10, 13);
+//		departamento2 = Departamento.RECURSOS_HUMANOS;
+//		fCaducidad2 = LocalDate.of(2024, 06, 06);
+//
+//		mari = new Contratado("Mari", "Lee", 132165465l, 2313153l, fIngreso1, fNac1, departamento1, fCaducidad1);
+//		andy = new Contratado("Andy", "Borgeat", 111111111l, 2313153l, fIngreso2, fNac2, departamento2, fCaducidad2);
+//
+//		nombreEmpresa = "X";
+//		empresa = new Empresa(nombreEmpresa);
+//
+//		empresa.agregarEmpleado(mari);
+//		empresa.agregarEmpleado(andy);
+//
+//		// Validacion
+//		assertEquals(CANTIDAD_ESPERADA_CONTRATADOS, empresa.filtrarCantidadDeContratados());
+//
+//	}
+
 }

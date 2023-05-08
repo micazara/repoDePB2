@@ -25,6 +25,7 @@ public abstract class Empleado {
 		this.departamento = departamento;
 	}
 
+	 //METODOS GENERALES
 	String getNombre() {
 		return nombre;
 	}
