@@ -12,9 +12,10 @@ public abstract class Empleado {
 	public LocalDate fingreso;
 	public LocalDate fnac;
 	public Departamento departamento;
+	public Credencial credencial;
 
 	public Empleado(String nombre, String apellido, Long CUIL, Long legajo, LocalDate fingreso, LocalDate fnac,
-			Departamento departamento) {
+			Departamento departamento,Credencial credencial) {
 
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -23,9 +24,18 @@ public abstract class Empleado {
 		this.fingreso = fingreso;
 		this.fnac = fnac;
 		this.departamento = departamento;
+		this.credencial=credencial;
 	}
 
-	 //METODOS GENERALES
+	 protected Credencial getCredencial() {
+		return credencial;
+	}
+
+	protected void setCredencial(Credencial credencial) {
+		this.credencial = credencial;
+	}
+
+	//METODOS GENERALES
 	String getNombre() {
 		return nombre;
 	}
