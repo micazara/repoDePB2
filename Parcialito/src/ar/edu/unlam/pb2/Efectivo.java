@@ -13,14 +13,13 @@ public class Efectivo extends Empleado {
 	}
 
 	@Override
-	public boolean abrirPuerta(Puerta puerta) {
+	public boolean abrirPuerta(Puerta puerta, Credencial credencial) {
 		// La puerta se abre si el tipo coincide con el tipo de la credencial
+		
 		Boolean seAbrio = false;
-		if (credencial.getTipoDeCredencial().equals(TipoCredencial.ALLACCESS)) {
-			pue
+		if (puerta.meAbroConCredencial(credencial))
 			seAbrio = true;
-			
-		}
+
 		return seAbrio;
 	}
 

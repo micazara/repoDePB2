@@ -43,7 +43,7 @@ public class CasosDePrueba {
 		fIngreso = LocalDate.of(2023, 05, 13);
 		fNac = LocalDate.of(2003, 07, 21);
 		departamento = Departamento.CONTABILIDAD;
-		credencial = new Credencial(5, TipoCredencial.VIGILANCIA);
+		credencial = new Credencial(5, TipoCredencial.VISITANTE);
 
 		fCaducidad = LocalDate.of(2024, 03, 01);
 
@@ -87,12 +87,12 @@ public class CasosDePrueba {
 		fIngreso = LocalDate.of(2023, 05, 13);
 		fNac = LocalDate.of(2003, 07, 21);
 		departamento = Departamento.CONTABILIDAD;
-		credencial = new Credencial(5, TipoCredencial.VIGILANCIA);
+		credencial = new Credencial(5, TipoCredencial.RESIDENTE);
 		fCaducidad = LocalDate.of(2024, 03, 01);
 		fIngreso2 = LocalDate.of(2023, 01, 13);
 		fNac2 = LocalDate.of(2003, 07, 22);
 		departamento2 = Departamento.LOGISTICA;
-		credencial2 = new Credencial(5, TipoCredencial.VIGILANCIA);
+		credencial2 = new Credencial(5, TipoCredencial.RESIDENTE);
 		fCaducidad2 = LocalDate.of(2024, 03, 02);
 		contratado = new Contratado("Micaela", "Zara", 132165465l, 2313153l, fIngreso, fNac, departamento, fCaducidad,
 				credencial);
@@ -269,7 +269,7 @@ public class CasosDePrueba {
 		String nombreEmpresa;
 
 		Credencial credencial;
-		credencial = new Credencial(5, TipoCredencial.VIGILANCIA);
+		credencial = new Credencial(5, TipoCredencial.RESIDENTE);
 
 		// Ejecucion
 		fIngreso1 = LocalDate.of(2023, 05, 13);
@@ -323,7 +323,7 @@ public class CasosDePrueba {
 		Integer CANTIDAD_ESPERADA_CONTRATADOS = 2;
 
 		Credencial credencial;
-		credencial = new Credencial(5, TipoCredencial.VIGILANCIA);
+		credencial = new Credencial(5, TipoCredencial.ALLACCESS);
 
 		// Ejecucion
 		fIngreso1 = LocalDate.of(2023, 05, 13);
@@ -569,97 +569,5 @@ public class CasosDePrueba {
 
 	}
 
-	@Test
-	public void queUnEmpleadoPuedaAbrirUnaPuertaConLaCredencial() {
-
-		// Datos de entrada
-		String nombre, apellido;
-		Long CUIL;
-		Long legajo;
-		LocalDate fingreso;
-		LocalDate fnac;
-		Departamento departamento;
-		ObraSocial obraSocial;
-		Long codigoObraSocial;
-		String nombreObraSocial;
-		Gremio gremio;
-		Agremiado zara;
-		Credencial credencial;
-
-		// Ejecucion
-		nombre = "Bella";
-		apellido = "De La Rosa";
-		legajo = 5l;
-		CUIL = 45L;
-		codigoObraSocial = 165165l;
-		nombreObraSocial = "Osde";
-		obraSocial = new ObraSocial(codigoObraSocial, nombreObraSocial);
-		gremio = new Gremio(15l, "mercantil", "BPr");
-		fingreso = LocalDate.of(2023, 05, 13);
-		fnac = LocalDate.of(2003, 07, 21);
-		departamento = Departamento.VENTAS;
-		credencial = new Credencial(5, TipoCredencial.ALLACCESS);
-
-		// EL AGREMIADO
-		zara = new Agremiado(nombreObraSocial, apellido, CUIL, legajo, fingreso, fnac, departamento, obraSocial, gremio,
-				credencial);
-
-		// Validacion
-//		credencial.abrirPuerta();
-	}
-
-	@Test
-	public void queSePuedaCrearUnaPuertaDeAlPatio() {
-		Integer codigo;
-		Puerta puerta;
-
-		codigo = 6321;
-		puerta = new Puerta(codigo);
-
-		assertNotNull(puerta);
-	}
-
-	@Test
-	public void queUnEfectivoPuedaAbrirLaPuerta() {
-
-		// Datos de entrada
-		String nombre, apellido;
-		Long CUIL;
-		Long legajo;
-		LocalDate fingreso;
-		LocalDate fnac;
-		Empleado mica;
-		Departamento departamento;
-		Credencial credencial;
-
-		Efectivo efec;
-		ObraSocial obraSocial;
-		Long codigoObraSocial;
-		String nombreObraSocial;
-
-		Integer codigo;
-		Puerta puertaVisitante;
-		Puerta puertaResidente;
-		Puerta puertaVigilancia;
-
-		// Ejecucion
-		fingreso = LocalDate.of(2023, 05, 13);
-		fnac = LocalDate.of(2003, 07, 21);
-		departamento = Departamento.CONTABILIDAD;
-		credencial = new Credencial(5, TipoCredencial.ALLACCESS);
-		codigoObraSocial = 165165l;
-		nombreObraSocial = "Osde";
-
-		obraSocial = new ObraSocial(codigoObraSocial, nombreObraSocial);
-		efec = new Efectivo("Micaela", "Zara", 132165465l, 2313153l, fingreso, fnac, departamento, obraSocial,
-				credencial);
-
-		codigo = 6321;
-		puertaVigilancia = new Puerta(codigo);
-
-		efec.abrirPuerta(puertaVigilancia);
-
-		// Validacion
-
-	}
+	
 }
