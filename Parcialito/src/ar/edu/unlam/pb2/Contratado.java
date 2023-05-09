@@ -21,9 +21,13 @@ public class Contratado extends Empleado {
 	}
 
 	@Override
-	public boolean abrirPuerta() {
+	public boolean abrirPuerta(Puerta puerta, Credencial credencial) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	
+
+	
 
 }
