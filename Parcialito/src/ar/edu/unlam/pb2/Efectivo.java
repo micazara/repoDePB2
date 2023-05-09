@@ -1,6 +1,7 @@
 package ar.edu.unlam.pb2;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Efectivo extends Empleado {
 
@@ -10,15 +11,22 @@ public class Efectivo extends Empleado {
 			Departamento departamento, ObraSocial obraSocial, Credencial credencial) {
 		super(nombre, apellido, CUIL, legajo, fingreso, fnac, departamento, credencial);
 		this.obraSocial = obraSocial;
+
 	}
 
 	@Override
 	public boolean abrirPuerta(Puerta puerta, Credencial credencial) {
 		// La puerta se abre si el tipo coincide con el tipo de la credencial
-		
+
 		Boolean seAbrio = false;
-		if (puerta.meAbroConCredencial(credencial))
+		LocalDateTime fechaIngreso= LocalDateTime.now();
+		if (puerta.meAbroConCredencial(credencial)) {
+			credencial.guardarAcceso(seAbrio, puerta, fechaIngreso);
 			seAbrio = true;
+		}
+		else {
+			seAbrio=false;
+		}
 
 		return seAbrio;
 	}
