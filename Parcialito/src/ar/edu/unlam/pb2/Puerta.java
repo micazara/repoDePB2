@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2;
 
-public abstract class Puerta {
+public class Puerta {
 
 	private Integer codigo;
 	private Boolean abierta;
