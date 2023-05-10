@@ -8,6 +8,8 @@ import org.junit.Test;
 
 public class CasosDePrueba {
 
+	// CANTIDAD DE TESTS: 8
+	
 	@Test
 	public void queSePuedaCrearUnaEmpresa() {
 		// Datos de entrada

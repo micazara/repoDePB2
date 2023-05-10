@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import org.junit.Test;
 
 public class CasosDePruebaPuerta {
+	
+	// CANTIDAD DE TESTS: 2
 
 	@Test
 	public void queSePuedaAbrirLaPuertaConCredencialCorrecta() {
